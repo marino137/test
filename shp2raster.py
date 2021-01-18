@@ -27,13 +27,8 @@ def shp2raster(input_shp, input_img, output_raster, rasterize_field, rasterize_t
 
     raster_src = gdal.Open(input_img)
     geo = raster_src.GetGeoTransform()
-    # x_min, x_max, y_min, y_max = raster_src.GetRasterBand(1).GetExtent()
-    # raster_src = None
     # 设置栅格化所需各种参数，创建栅格
     spatial_ref = source_layer.GetSpatialRef()
-    # x_min, x_max, y_min, y_max = source_layer.GetExtent()
-    # x_res = int((x_max - x_min) / pixel_size)
-    # y_res = int((y_max - y_min) / pixel_size)
     x_min, y_min = geo[0], geo[3]
     pixel_size_x, pixel_size_y = geo[1], geo[5]
 
